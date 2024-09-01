@@ -1,11 +1,15 @@
+import React from "react"
 
+import AddTodo from "./components/AddTodo";
+import TodoList from "./components/TodoList";
 
-const App = () => {
+const App:React.FC = () => {
 
   return (
-    <>
-      <h1>hello word</h1>
-    </>
+    <div>
+      <TodoList />
+      <AddTodo />
+    </div>
   )
 }
 
