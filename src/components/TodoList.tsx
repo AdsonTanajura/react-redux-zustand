@@ -1,8 +1,8 @@
 import React from "react";
-import {useSelector} from "react-redux";
+import { useAppSelector } from "../store";
 
 const TodoList:React.FC = () =>{
-    const todos = useSelector(sotre => {
+    const todos = useAppSelector(sotre => {
         return sotre.todo
     });
 

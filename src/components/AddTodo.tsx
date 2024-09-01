@@ -1,12 +1,20 @@
 import React, {FormEvent, useState} from "react";
+import { useDispatch } from "react-redux";
+import { add } from "../store/index";
 
 const AddTodo: React.FC = () => {
     const [newTodo, setNewTodo] = useState('')
+    const dispach = useDispatch();
 
     const handleNewtodo = (e: FormEvent) => {
         e.preventDefault()
 
-        console.log(newTodo);
+        dispach(add({
+            newTodo,
+        }))
+
+        setNewTodo('')
+
     };
 
     return (
