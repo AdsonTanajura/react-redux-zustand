@@ -1,11 +1,16 @@
 import React from "react";
+import {useSelector} from "react-redux";
 
 const TodoList:React.FC = () =>{
+    const todos = useSelector(sotre => {
+        return sotre.todo
+    });
+
+    console.log(todos);
 
     return (
         <ul>
-            <li>Fazer cafe</li>
-            <li>Estudar Redux</li>
+            {todos.map(todo => <li key={todo}>{todo}</li>)}
         </ul>
     )
 };
