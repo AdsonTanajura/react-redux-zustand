@@ -30,7 +30,6 @@ export const MainContainer = styled.main`
 
 export const AsideContainer = styled.aside`
     width: 320px;
-    height: 600px;
     border-left: 1px solid #000;
     border-color: #2d3748;
     background-color: #111827;
@@ -38,4 +37,10 @@ export const AsideContainer = styled.aside`
 
 export const VideoContainer = styled.div`
     flex: 1;
+`;
+
+export const VideoAspect = styled.div`
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background-color: #18181b;
 `;
