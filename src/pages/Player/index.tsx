@@ -1,7 +1,6 @@
 import React from "react";
-import ReactPlayer from "react-player";
 
-import { AsideContainer, Container, Content, MainContainer, VideoAspect, VideoContainer } from './styles';
+import { AsideContainer, Container, Content, MainContainer } from './styles';
 
 import TopBar from "../../components/TopBar";
 import ClassBar from "../../components/ClassBar";
