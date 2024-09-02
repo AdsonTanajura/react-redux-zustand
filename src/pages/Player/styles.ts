@@ -26,6 +26,7 @@ export const MainContainer = styled.main`
     border-color: #2d3748;
     background-color: #111827;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    padding-right: 20rem;
 `;
 
 export const AsideContainer = styled.aside`
@@ -33,6 +34,10 @@ export const AsideContainer = styled.aside`
     border-left: 1px solid #000;
     border-color: #2d3748;
     background-color: #111827;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
 `;
 
 export const VideoContainer = styled.div`
@@ -43,4 +48,26 @@ export const VideoAspect = styled.div`
     width: 100%;
     aspect-ratio: 16 / 9;
     background-color: #18181b;
+`;
+
+export const ScrollContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    width: 8px
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #0f0f0f;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #2d2d2d;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
 `;
