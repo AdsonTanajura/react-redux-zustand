@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ButtonContainer,ModuleClassNumbers,ModuleContainer, ModuleNumber, ModuleTitle, StyledChevronDown} from "./styles";
+import { ButtonContainer,ModuleClassNumbers,ModuleContainer, ModuleNumber, ModuleTitle, StyledChevronDown, ClassContent} from "./styles";
 import { ModuleName } from "../TopBar/styles";
 import Lesson from "../Lesson";
 
@@ -23,8 +23,10 @@ const ClassBar:React.FC<ClassBarProps> = ({amountOfLessons, title, moduleIndex})
                 </ModuleTitle>
                 <StyledChevronDown />
             </ButtonContainer>
-
+        
+        <ClassContent>
             <Lesson title="Fundamentos do Redux" duration="09:00"/>
+        </ClassContent>
 
         </ModuleContainer>
     )

@@ -1,11 +1,23 @@
 import { styled } from "styled-components";
+import * as Collapsible from '@radix-ui/react-collapsible';
 
 import { ChevronDown } from "lucide-react";
 
-export const ModuleContainer = styled.div`
-
+export const StyledChevronDown = styled(ChevronDown)`
+    color: #9ca3af;
+    margin-left: auto;
+    width: 20px;
+    height: 20px;
 `;
-export const ButtonContainer = styled.button`
+
+export const ModuleContainer = styled(Collapsible.Root)`
+    &[data-state='open'] ${StyledChevronDown} {
+        transform: rotate(180deg);
+        color: blue;
+        transition: transform 0.3s;
+  }
+`;
+export const ButtonContainer = styled(Collapsible.Trigger)`
     display: flex;
     width: 100%;
     align-items: center;
@@ -48,9 +60,7 @@ export const ModuleClassNumbers = styled.span`
     color: #9ca3af;
 `;
 
-export const StyledChevronDown = styled(ChevronDown)`
-    color: #9ca3af;
-    margin-left: auto;
-    width: 20px;
-    height: 20px;
+
+
+export const ClassContent = styled(Collapsible.Content)`
 `;
