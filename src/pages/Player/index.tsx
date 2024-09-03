@@ -5,7 +5,12 @@ import { AsideContainer, Container, Content, MainContainer, ScrollContainer} fro
 import TopBar from "../../components/TopBar";
 import ClassBar from "../../components/ClassBar";
 import VideoView from "../../components/VideoView";
+import { useAppSelector } from "../../store";
+
 const Player:React.FC = () => {
+    const modules = useAppSelector(state => {
+        return state.player.course.modules
+    })
 
     return(
         <Container>
@@ -15,7 +20,15 @@ const Player:React.FC = () => {
                     <VideoView url="https://youtu.be/SAC4lwJRKdo?si=rZ6mAXbI2h4OKm9x"/>
                         <AsideContainer>
                             <ScrollContainer>
-                                <ClassBar title="Desvendadndo o Redux" amountOfLessons={3} moduleIndex={0}/>
+                                {modules.map((module, index) => {
+                                    return (
+                                        <ClassBar 
+                                        key={module.id}
+                                        title={module.title}
+                                        amountOfLessons={module.lessons.length}moduleIndex={index}
+                                        />
+                                    )
+                                })}
                             </ScrollContainer>
                         </AsideContainer>
                 </MainContainer>

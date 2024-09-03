@@ -3,6 +3,7 @@ import React from "react";
 import { ButtonContainer,ModuleClassNumbers,ModuleContainer, ModuleNumber, ModuleTitle, StyledChevronDown, ClassContent} from "./styles";
 import { ModuleName } from "../TopBar/styles";
 import Lesson from "../Lesson";
+import { useAppSelector } from "../../store";
 
 interface ClassBarProps {
     moduleIndex: number;
@@ -11,7 +12,9 @@ interface ClassBarProps {
 }
 
 const ClassBar:React.FC<ClassBarProps> = ({amountOfLessons, title, moduleIndex}) => {
-
+    const lessons = useAppSelector(state => {
+        return state.player.course.modules[moduleIndex].lessons
+    })
     return(
         <ModuleContainer>
 
@@ -25,7 +28,15 @@ const ClassBar:React.FC<ClassBarProps> = ({amountOfLessons, title, moduleIndex})
             </ButtonContainer>
         
         <ClassContent>
-            <Lesson title="Fundamentos do Redux" duration="09:00"/>
+            {lessons.map(lesson => {
+                return (
+                    <Lesson 
+                    key={lesson.id} 
+                    title={lesson.title} 
+                    duration={lesson.duration}
+                    /> 
+                )
+            })}
         </ClassContent>
 
         </ModuleContainer>
