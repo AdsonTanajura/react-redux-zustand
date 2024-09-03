@@ -4,6 +4,8 @@ import { ButtonContainer,ModuleClassNumbers,ModuleContainer, ModuleNumber, Modul
 import { ModuleName } from "../TopBar/styles";
 import Lesson from "../Lesson";
 import { useAppSelector } from "../../store";
+import { useDispatch } from "react-redux";
+import { play } from "../../store/slices/player";
 
 interface ClassBarProps {
     moduleIndex: number;
@@ -12,6 +14,8 @@ interface ClassBarProps {
 }
 
 const ClassBar:React.FC<ClassBarProps> = ({amountOfLessons, title, moduleIndex}) => {
+    const dispatch = useDispatch()
+
     const lessons = useAppSelector(state => {
         return state.player.course.modules[moduleIndex].lessons
     })
@@ -28,12 +32,13 @@ const ClassBar:React.FC<ClassBarProps> = ({amountOfLessons, title, moduleIndex})
             </ButtonContainer>
         
         <ClassContent>
-            {lessons.map(lesson => {
+            {lessons.map((lesson, lessonIndex) => {
                 return (
                     <Lesson 
                     key={lesson.id} 
                     title={lesson.title} 
                     duration={lesson.duration}
+                    onPlay={() => dispatch(play([moduleIndex, lessonIndex]))}
                     /> 
                 )
             })}

@@ -17,7 +17,7 @@ const Player:React.FC = () => {
             <Content>
                 <TopBar tilte="Fundamentos do Redux" module="Modulo Desvendando o Redux" />
                 <MainContainer>
-                    <VideoView url="https://youtu.be/SAC4lwJRKdo?si=rZ6mAXbI2h4OKm9x"/>
+                    <VideoView />
                         <AsideContainer>
                             <ScrollContainer>
                                 {modules.map((module, index) => {
