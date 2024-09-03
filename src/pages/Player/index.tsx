@@ -15,11 +15,7 @@ const Player:React.FC = () => {
                     <VideoView url="https://youtu.be/SAC4lwJRKdo?si=rZ6mAXbI2h4OKm9x"/>
                         <AsideContainer>
                             <ScrollContainer>
-                                <ClassBar />
-                                <ClassBar />
-                                <ClassBar />
-                                <ClassBar />
-                                <ClassBar />
+                                <ClassBar title="Desvendadndo o Redux" amountOfLessons={3} moduleIndex={0}/>
                             </ScrollContainer>
                         </AsideContainer>
                 </MainContainer>

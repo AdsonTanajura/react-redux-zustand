@@ -12,6 +12,11 @@ export const ButtonContainer = styled.button`
     gap: 12px;
     background-color: #27272a;
     padding: 16px;
+    border: 0; 
+
+  & + button {
+    border-top: 8px solid #18181b;
+  }
 `;
 
 export const ModuleNumber = styled.div`
@@ -26,14 +31,14 @@ export const ModuleNumber = styled.div`
     color: #9ca3af;
 `;
 
-export const ModuleTilte = styled.div`
+export const ModuleTitle = styled.div`
     display: flex;
     flex-direction: column;
     gap: 4px;
     text-align: left;
 `;
 
-export const ModuleTilteName = styled.h3`
+export const ModuleTitleName = styled.h3`
     font-size: 14px;
     font-weight: bold;
 `;
@@ -48,33 +53,4 @@ export const StyledChevronDown = styled(ChevronDown)`
     margin-left: auto;
     width: 20px;
     height: 20px;
-`;
-
-export const ClassesContainer = styled.nav`
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    padding: 24px;
-`;
-
-export const Class = styled.button`
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 14px;
-    color: #9ca3af;
-    background-color: transparent;
-    border: none;
-`;
-
-export const ClassName = styled.span`
-
-`;
-
-export const ClassDuration = styled.span`
-    margin-left: auto;
-    font-family: "Monaco", "Menlo", "Courier New", monospace;
-    font-size: 12px;
-    color: #9ca3af;
 `;
