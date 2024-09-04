@@ -15,7 +15,7 @@ const Player:React.FC = () => {
     return(
         <Container>
             <Content>
-                <TopBar tilte="Fundamentos do Redux" module="Modulo Desvendando o Redux" />
+                <TopBar />
                 <MainContainer>
                     <VideoView />
                         <AsideContainer>

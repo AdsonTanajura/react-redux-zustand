@@ -16,6 +16,13 @@ interface ClassBarProps {
 const ClassBar:React.FC<ClassBarProps> = ({amountOfLessons, title, moduleIndex}) => {
     const dispatch = useDispatch()
 
+    const { currentLessonIndex, currentModulerIndex } = useAppSelector(state => {
+        const currentModulerIndex = state.player.currentModuleIndex
+        const currentLessonIndex = state.player.currentLessonIndex
+
+        return { currentLessonIndex, currentModulerIndex }
+    })
+
     const lessons = useAppSelector(state => {
         return state.player.course.modules[moduleIndex].lessons
     })
@@ -33,12 +40,14 @@ const ClassBar:React.FC<ClassBarProps> = ({amountOfLessons, title, moduleIndex})
         
         <ClassContent>
             {lessons.map((lesson, lessonIndex) => {
+                const isCurrent = currentModulerIndex === moduleIndex && currentLessonIndex === lessonIndex
                 return (
                     <Lesson 
                     key={lesson.id} 
                     title={lesson.title} 
                     duration={lesson.duration}
                     onPlay={() => dispatch(play([moduleIndex, lessonIndex]))}
+                    isCurrent={isCurrent}
                     /> 
                 )
             })}

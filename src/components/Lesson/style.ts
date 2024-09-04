@@ -16,6 +16,15 @@ export const Class = styled.button`
     color: #9ca3af;
     background-color: transparent;
     border: none;
+    transition: color 0.3s;
+    
+    &:hover {
+        color: #f4f4f5;
+    }
+
+    &[data-active='true'] {
+        color: #34d399;
+    }
 `;
 
 export const ClassName = styled.span`
