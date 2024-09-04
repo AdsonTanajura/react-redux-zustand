@@ -27,7 +27,7 @@ const ClassBar:React.FC<ClassBarProps> = ({amountOfLessons, title, moduleIndex})
         return state.player.course.modules[moduleIndex].lessons
     })
     return(
-        <ModuleContainer>
+        <ModuleContainer defaultOpen={moduleIndex === 0}>
 
             <ButtonContainer>
                 <ModuleNumber>{moduleIndex + 1}</ModuleNumber>
