@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { AsideContainer, Container, Content, MainContainer, ScrollContainer} from './styles';
+
+import useCurrentLessonAndModule from "../../store/slices/player/hooks/useCurrentLessonAndModule";
 
 import TopBar from "../../components/TopBar";
 import ClassBar from "../../components/ClassBar";
@@ -11,6 +13,12 @@ const Player:React.FC = () => {
     const modules = useAppSelector(state => {
         return state.player.course.modules
     })
+
+    const { currentLesson } = useCurrentLessonAndModule();
+
+    useEffect(() => {
+        document.title = `Assistindo: ${currentLesson.title}`
+    }, [currentLesson]);
 
     return(
         <Container>

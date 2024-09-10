@@ -3,20 +3,15 @@ import React from "react";
 import { VideoAspect, VideoContainer, } from "./style";
 
 import Player from "react-player";
-import { useAppSelector } from "../../store";
 import { useDispatch } from "react-redux";
 import { nextVideo } from "../../store/slices/player/player";
+import useCurrentLessonAndModule from "../../store/slices/player/hooks/useCurrentLessonAndModule";
 
 
 const VideoView:React.FC = () => {
     const dispacht = useDispatch()
 
-    const lesson = useAppSelector(state => {
-        const { currentLessonIndex, currentModuleIndex } = state.player
-        const currentLesson = state.player.course.modules[currentModuleIndex].lessons[currentLessonIndex]
-
-        return currentLesson;
-    })
+    const { currentLesson  } = useCurrentLessonAndModule();
 
     const handleNextPlay = () => {
         dispacht(nextVideo())
@@ -30,7 +25,7 @@ const VideoView:React.FC = () => {
                 width="100%"
                 controls
                 onEnded={handleNextPlay}
-                url= {`https://www.youtube.com/watch?v=${lesson.id}`}
+                url= {`https://www.youtube.com/watch?v=${currentLesson.id}`}
                 />
             </VideoAspect>
         </VideoContainer>
