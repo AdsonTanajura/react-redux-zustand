@@ -5,7 +5,7 @@ import { VideoAspect, VideoContainer, } from "./style";
 import Player from "react-player";
 import { useAppSelector } from "../../store";
 import { useDispatch } from "react-redux";
-import { nextVideo } from "../../store/slices/player";
+import { nextVideo } from "../../store/slices/player/player";
 
 
 const VideoView:React.FC = () => {

@@ -5,7 +5,7 @@ import { ModuleName } from "../TopBar/styles";
 import Lesson from "../Lesson";
 import { useAppSelector } from "../../store";
 import { useDispatch } from "react-redux";
-import { play } from "../../store/slices/player";
+import { play } from "../../store/slices/player/player";
 
 interface ClassBarProps {
     moduleIndex: number;
