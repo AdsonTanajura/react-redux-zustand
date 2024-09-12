@@ -17,6 +17,10 @@ const VideoView:React.FC = () => {
         dispacht(nextVideo())
     };
 
+    if (!currentLesson) {
+        return null;
+    }
+
     return(
         <VideoContainer>
             <VideoAspect>

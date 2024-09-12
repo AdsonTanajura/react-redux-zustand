@@ -24,7 +24,7 @@ const ClassBar:React.FC<ClassBarProps> = ({amountOfLessons, title, moduleIndex})
     })
 
     const lessons = useAppSelector(state => {
-        return state.player.course.modules[moduleIndex].lessons
+        return state.player.course?.modules[moduleIndex].lessons
     })
     return(
         <ModuleContainer defaultOpen={moduleIndex === 0}>
@@ -39,7 +39,7 @@ const ClassBar:React.FC<ClassBarProps> = ({amountOfLessons, title, moduleIndex})
             </ButtonContainer>
         
         <ClassContent>
-            {lessons.map((lesson, lessonIndex) => {
+            {lessons && lessons.map((lesson, lessonIndex) => {
                 const isCurrent = currentModulerIndex === moduleIndex && currentLessonIndex === lessonIndex
                 return (
                     <Lesson 

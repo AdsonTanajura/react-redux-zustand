@@ -8,7 +8,9 @@ import useCurrentLessonAndModule from "../../store/slices/player/hooks/useCurren
 const TopBar:React.FC = () => {
     const { currentLesson, currentModule } = useCurrentLessonAndModule();
 
-
+    if(!currentModule || !currentLesson) {
+        return null
+    }
 
     return (
         <Container>
