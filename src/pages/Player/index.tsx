@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { api } from "../../lib/axios";
 
 import { AsideContainer, Container, Content, MainContainer, ScrollContainer} from './styles';
 
@@ -8,12 +7,11 @@ import useCurrentLessonAndModule from "../../store/slices/player/hooks/useCurren
 import TopBar from "../../components/TopBar";
 import ClassBar from "../../components/ClassBar";
 import VideoView from "../../components/VideoView";
-import { useAppSelector } from "../../store";
-import { useDispatch } from "react-redux";
-import { start } from "../../store/slices/player/player";
+import { useAppSelector, useAppDispatch } from "../../store";
+import { loadCourse } from "../../store/slices/player/player";
 
 const Player:React.FC = () => {
-    const dispatch = useDispatch()
+    const dispatch = useAppDispatch()
 
     const modules = useAppSelector(state => {
         return state.player.course?.modules
@@ -22,9 +20,7 @@ const Player:React.FC = () => {
     const { currentLesson } = useCurrentLessonAndModule();
 
     useEffect(() => {
-        api.get('/courses/1').then(response => {
-            dispatch(start(response.data))
-        })
+        dispatch(loadCourse())
     }, [])
 
     useEffect(() => {

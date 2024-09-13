@@ -3,13 +3,13 @@ import React from "react";
 import { VideoAspect, VideoContainer, } from "./style";
 
 import Player from "react-player";
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "../../store";
 import { nextVideo } from "../../store/slices/player/player";
 import useCurrentLessonAndModule from "../../store/slices/player/hooks/useCurrentLessonAndModule";
 
 
 const VideoView:React.FC = () => {
-    const dispacht = useDispatch()
+    const dispacht = useAppDispatch()
 
     const { currentLesson  } = useCurrentLessonAndModule();
 
