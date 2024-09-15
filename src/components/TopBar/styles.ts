@@ -10,6 +10,8 @@ export const TilteContainer =styled.div`
     display: flex;
     flex-direction: column;
     gap: 4px;
+    align-items: center;
+    justify-content: space-between;
 `;
 
 export const Tilte = styled.h1`

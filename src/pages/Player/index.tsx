@@ -2,7 +2,9 @@ import React, { useEffect } from "react";
 
 import { AsideContainer, Container, Content, MainContainer, ScrollContainer} from './styles';
 
+
 import useCurrentLessonAndModule from "../../store/slices/player/hooks/useCurrentLessonAndModule";
+
 
 import TopBar from "../../components/TopBar";
 import ClassBar from "../../components/ClassBar";
@@ -21,7 +23,7 @@ const Player:React.FC = () => {
 
     useEffect(() => {
         dispatch(loadCourse())
-    }, [])
+    }, [dispatch])
 
     useEffect(() => {
        if (currentLesson) {

@@ -9,7 +9,11 @@ const TopBar:React.FC = () => {
     const { currentLesson, currentModule } = useCurrentLessonAndModule();
 
     if(!currentModule || !currentLesson) {
-        return null
+        return (
+        <Container>
+            <FeedBackButton />
+        </Container>
+        )
     }
 
     return (
